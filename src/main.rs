@@ -7,17 +7,15 @@ fn main() {
 
     let secret_number = rand::thread_rng().gen_range(1, 101);
 
-    println!("The secret number is: {}", secret_number);
-
     loop {
         println!("Please input your guess.");
 
         // Variables are immutable by default
         let mut guess = String::new();
 
-        // expect = print this on error, then crash
         io::stdin()
-            .read_line(&mut guess)
+        .read_line(&mut guess)
+            // expect = print this on error, then crash
             .expect("Failed to read line");
 
         // Shadow the original guess variable by casting it to an unsigned int
