@@ -11,10 +11,6 @@ Add the following line to your `~/.bashrc` or `~/.zshrc`:
 
     export PATH="$HOME/.cargo/bin:$PATH"
 
-Create a new Cargo project:
-
-    cargo new guessing_game
-
 Run project:
 
     cargo run
@@ -23,6 +19,14 @@ Just compile:
 
     cargo build
 
-Open documentation:
+Check code without producing an executable:
+
+    cargo check
+
+Building for release:
+
+    cargo build --release
+
+Open bundled documentation:
 
     cargo doc --open
