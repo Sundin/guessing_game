@@ -15,16 +15,22 @@ fn main() {
         // Variables are immutable by default
         let mut guess = String::new();
 
-        // expect = error handling
+        // expect = print this on error, then crash
         io::stdin()
             .read_line(&mut guess)
             .expect("Failed to read line");
 
         // Shadow the original guess variable by casting it to an unsigned int
-        let guess: u32 = guess
+        let guess: u32 = match guess
             .trim()
-            .parse()
-            .expect("Please type a number!");
+            .parse() {
+                Ok(num) => num,
+                // _ = match all Err values (place for proper error handling)
+                Err(_) => {
+                    println!("Please type a number!");
+                    continue;
+                }
+            };
 
         println!("You guessed: {}", guess);
 
